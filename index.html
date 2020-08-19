@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>toy-vue</title>
+  <style>
+    .btn{
+      background-color: coral;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    {{ msg}}
+    <br/>
+    <input type=text v-model=msg>
+    <br/>
+    <input type=text v-model=msg>
+    <br/>
+    <button v-bind:class=foo v-on:click=reverse>reverse</button>
+  </div>
+  <script type=module>
+    import {ToyVue as Vue} from './toy-vue.js'
+    const app = new Vue({
+      el: '#app',
+      data: {
+        msg: 'sean',
+        foo: 'btn',
+      },
+      methods:{
+        reverse(){
+          this.msg = this.msg.split('').reverse().join('')
+        },
+      },
+    })
+  </script>
+</body>
+</html>
